@@ -21,17 +21,13 @@ import com.app.service.DoctorServiceIntf;
 @CrossOrigin(value = "*", allowedHeaders = "*")
 public class AppointmentController {
 
-	// dependencies added in constructor by @Autowired
+	// dependencies added in constructor by 
+	@Autowired
 	AppointmentServiceIntf appointmentService;
 
+	@Autowired
 	DoctorServiceIntf doctorService;
 
-	// constructor level autowiring
-	@Autowired
-	public AppointmentController(AppointmentServiceIntf appointmentService, DoctorServiceIntf doctorService) {
-		this.appointmentService = appointmentService;
-		this.doctorService = doctorService;
-	}
 
 	@GetMapping("/patient/{appointmentId}")
 	public ResponseEntity<?> getPatientByAppointmentId(@PathVariable Long appointmentId) {
