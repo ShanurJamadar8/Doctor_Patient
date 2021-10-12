@@ -30,19 +30,15 @@ import com.app.service.PatientServiceIntf;
 public class AdminController {
 
 	// dependencies added in constructor by @Autowired
+	@Autowired
 	private DoctorServiceIntf doctorService;
 
+	@Autowired
 	private PatientServiceIntf patientService;
 
+	@Autowired
 	private BloodDonorIntf bloodDonorService;
 
-	@Autowired // constructor level autowiring
-	public AdminController(DoctorServiceIntf doctorService, PatientServiceIntf patientService,
-			BloodDonorIntf bloodDonorService) {
-		this.doctorService = doctorService;
-		this.bloodDonorService = bloodDonorService;
-		this.patientService = patientService;
-	}
 
 	@PostMapping("/doctorSignUp")
 	public ResponseEntity<?> saveDoctor(@RequestBody @Valid DoctorDTO doctor) {
